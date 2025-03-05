@@ -1,71 +1,79 @@
-# ForkItUP
-Fork it yourself, (Firefox) The easy way!
+#ForkItUp
 
-Do-It-Yourself Guide: Make Your Own Firefox Fork!
+Do it yourself Guide, Make your own Firefox Fork!
 
-Prerequisites and Setup
-1. Install Node.js
-   - Verify installation with: node --version
+I almost forgot, make sure to disable your anti-virus while you are building your fork 
+because it will falsely flag it as malware and delete the files if 
+you try to build it  with it enabled! It's A false-flag.
 
-2. Download Visual Studio Community 2022
-   - During installation, select these components:
-     - Desktop development with C++
-     - MSVC v142 toolset
-     - Windows 10 SDK
-     - CMake
 
-3. Download and Install Mozilla Builds
-   - Install to your C drive for easy access
+Install Node.js.com
+node --version checks installation 
 
-4. Install Mercurial
+Download visual studio community 2022 version, https://visualstudio.microsoft.com/downloads/
+when installing select these components
+Desktop development with C++
+MSVC v142 toolset
+Windows 10 or 11 SDK
+CMake
 
-5. Download Git
-   - Use it to clone GitHub repositories to any folder
+Download and install https://wiki.mozilla.org/MozillaBuild to your C drive for easy access
+Download https://www.mercurial-scm.org/
+Download https://git-scm.com/ to clone GitHub repositories to any folder
 
-6. Install Rust
-     - In CMD or Windows PowerShell, run:
-     - rustup default stable
-     - rustup update
-   - Check version with: rustc --version
+Install Rust using CMD or Windows PowerShell |
 
-Creating Your Project Directory
-1. Open a command prompt and run:
-   
-    cd /c
-    mkdir your-browser
-    cd your-browser
-   
- Note: Ensure this folder is created on your C drive
+rustup default stable
+rustup update
+Check version
+rustc --version this checks the version you have installed
 
-Cloning Firefox Source Code
-1. Clone the Firefox source code into your directory:
-2. git clone https://github.com/mozilla/gecko-dev.git
-3. cd gecko-dev
-4. Note: This requires Git to be installed
+restart computer
 
-Building Your Fork
-1. Bootstrap the Build System
-   - Run: ./mach bootstrap
+|COMMANDS|
 
-2. Configure Your mozconfig
-   - Run these commands to create and configure the mozconfig file:
-     - echo 'ac_add_options --disable-crashreporter' > mozconfig
-     - echo 'ac_add_options --disable-updater' >> mozconfig
-     - echo 'ac_add_options --disable-telemetry' >> mozconfig
+cd /c
+mkdir your-browser
+cd your-browser 
 
-3. Build Commands
-   - ./mach build
-     - Builds the fork
-   - ./mach build faster
-     - Same as build but faster for smaller changes (e.g., changing a name)
-   - ./mach run --purgecaches
-     - Runs the browser and purges older cache from previous builds
+this creates a new folder with the name you chose 
+Make sure to make the folder in your C drive
 
-4. Finalize your fork:
-   - Run: ./mach build
+Now clone the Firefox source code inside of  your Directory
 
-Removing a Directory (If Needed)
-- To remove a directory:
-  - rmdir /s /q C:\name-here
+git clone https://github.com/mozilla/gecko-dev.git
+cd gecko-dev
+./mach bootstrap installs required files in your folder/ sets it up\ Do this after cloning the source-code, make your you are in cd gecko-dev first!
 
-rmdir "C:\your-browser" /s
+
+This is why you need git installed, now locate your mozilla-build folder and open start-shell.bat
+./mach build faster same thing as build but is much faster for smaller changes you made.
+./mach run --purgecaches runs the browser and purges any older cache from previous build
+./mach build |
+Builds the fork
+
+
+
+
+
+Configure your mozconfig | Do this after building your fork first just in case it might cause issues
+
+echo 'ac_add_options --'disable-crashreporter' mozconfig
+echo 'ac_add_options --'disable-updater'  mozconfig
+echo 'ac_add_options --'disable-telemetry' mozconfig
+
+ 
+now build your browser! ./mach build to finalize the fork!
+
+
+removes a directory | (If Needed)
+
+rmdir /s /q C:\your directory here
+
+
+
+Signed -- MultiDarkZen
+
+
+
+happy forking!
